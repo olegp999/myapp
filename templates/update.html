@@ -1,0 +1,22 @@
+
+{% extends "base.html" %} 
+
+
+{% block body %}
+
+<center>
+    <h1>UPDATE CONTACT: </h1>
+
+    {% for contact in contacts %}
+    <form method="POST" action="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}">
+        {{ form.csrf_token }}
+        {{ form.name.label }} <br> {{ form.name() }} <br>
+        {{ form.number.label }} <br> {{ form.number() }} <br><br>
+        {{ form.submit() }}
+    </form>  
+        {% endfor %}
+ 
+</center> 
+
+{% endblock %}
+
