@@ -55,6 +55,7 @@ def index():
         except:
             return 'Error'
     else:    
+        return render_template('index.html', form=cform)
         try:
             with mysql.connection.cursor() as cur:
 
@@ -71,6 +72,7 @@ def index():
                 return render_template('index.html', contacts=cont, form=cform)
         except:
             return 'Error'   
+    
 
 # Define a route for the contact deletion functionality 
 @app.route('/del')
