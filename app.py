@@ -29,9 +29,6 @@ csrf = CSRFProtect(app)
 # Initialize the Bootstrap extension for the Flask app
 Bootstrap(app)
 
-# Load database configuration information from the db.yaml file
-db = yaml.safe_load(open('db.yaml'))
-
 # Configure the MySQL connection settings for the Flask app
 app.config['MYSQL_HOST'] = 'eu-central.connect.psdb.cloud' 
 app.config['MYSQL_USER'] = '1oikc0akh0m4t21n76zx'
