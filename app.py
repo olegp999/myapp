@@ -7,6 +7,10 @@ from wtforms import Form, StringField, validators, SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
  
 # Define the ContactForm class using FlaskForm    
@@ -15,6 +19,7 @@ class ContactForm(FlaskForm):
     number = StringField('Number', validators=[DataRequired()])
     submit = SubmitField('Submit')
     
+
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -26,13 +31,13 @@ csrf = CSRFProtect(app)
 Bootstrap(app)
 
 # Load database configuration information from the db.yaml file
-# db = yaml.safe_load(open('db.yaml'))
+db = yaml.safe_load(open('db.yaml'))
 
 # Configure the MySQL connection settings for the Flask app
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'contact_manager'
+app.config['MYSQL_HOST'] = 'eu-central.connect.psdb.cloud' 
+app.config['MYSQL_USER'] = '1oikc0akh0m4t21n76zx'
+app.config['MYSQL_PASSWORD'] = 'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
+app.config['MYSQL_DB'] = 'contact'
 app.config['SECRET_KEY'] = 'qqq'
 
 # Initialize the MySQL extension for the Flask app
@@ -55,7 +60,6 @@ def index():
         except:
             return 'Error'
     else:    
-        return render_template('index.html', form=cform)
         try:
             with mysql.connection.cursor() as cur:
 
