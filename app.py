@@ -7,10 +7,9 @@ from wtforms import Form, StringField, validators, SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
+password = os.environ.get('MYSQL_PASSWORD')
 
  
 # Define the ContactForm class using FlaskForm    
@@ -36,7 +35,7 @@ db = yaml.safe_load(open('db.yaml'))
 # Configure the MySQL connection settings for the Flask app
 app.config['MYSQL_HOST'] = 'eu-central.connect.psdb.cloud' 
 app.config['MYSQL_USER'] = '1oikc0akh0m4t21n76zx'
-app.config['MYSQL_PASSWORD'] = 'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
+app.config['MYSQL_PASSWORD'] = password
 app.config['MYSQL_DB'] = 'contact'
 app.config['SECRET_KEY'] = 'qqq'
 
