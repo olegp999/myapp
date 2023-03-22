@@ -55,7 +55,8 @@ def index():
                 return redirect(url_for('index'))
         except:
             return 'Error'
-    else:    
+    else:
+            return render_template('index.html', form=cform)    
         # try:
             with mysql.connection.cursor() as cur:
 
