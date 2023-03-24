@@ -16,24 +16,12 @@ connection = MySQLdb.connect(
 )
 
 
-
-sql = '''CREATE TABLE contact_manager2(
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  number VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id)
-);'''
-
-
+# Create cursor and use it to execute SQL command
 cursor = connection.cursor()
+cursor.execute("select @@version")
+version = cursor.fetchone()
 
-# execute the query
-cursor.execute(sql)
-
-# fetch the data
-data = cursor.fetchall()
-
-
-# close the cursor and connection
-cursor.close()
-connection.close()
+if version:
+    print('Running version: ', version)
+else:
+    print('Not connected.')
