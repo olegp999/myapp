@@ -4,7 +4,6 @@ import yaml
 
 app = Flask(__name__)
 
-
 db = yaml.safe_load(open('db.yaml'))
 
 app.config['MYSQL_HOST'] = 'localhost'

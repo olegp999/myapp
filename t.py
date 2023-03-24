@@ -1,27 +1,28 @@
-
-from dotenv import load_dotenv
-load_dotenv()
 import os
-import MySQLdb
+from dotenv import load_dotenv
+from mysql.connector import Error
+import mysql.connector
 
-connection = MySQLdb.connect(
-  host= os.getenv("HOST"),
-  user=os.getenv("USERNAME"),
-  passwd= os.getenv("PASSWORD"),
-  db= os.getenv("DATABASE"),
-  ssl_mode = "VERIFY_IDENTITY",
-  ssl      = {
-    "ca": "/etc/ssl/cert.pem"
-  }
+load_dotenv()
+
+connection = mysql.connector.connect(
+host=os.getenv("HOST"),
+database=os.getenv("DATABASE"),
+user=os.getenv("USERNAME"),
+password=os.getenv("PASSWORD"),
+ssl_ca=os.getenv("SSL_CERT")
 )
 
-
-# Create cursor and use it to execute SQL command
-cursor = connection.cursor()
-cursor.execute("select @@version")
-version = cursor.fetchone()
-
-if version:
-    print('Running version: ', version)
-else:
-    print('Not connected.')
+try:
+    if connection.is_connected():
+        cursor = connection.cursor()
+    cursor.execute("select @@version ")
+    version = cursor.fetchone()
+    if version:
+        print('Running version: ', version)
+    else:
+        print('Not connected.')
+except Error as e:
+    print("Error while connecting to MySQL", e)
+finally:
+    connection.close()
