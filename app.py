@@ -13,6 +13,7 @@ from mysql.connector import Error
 import mysql.connector
 
  
+load_dotenv()
 # Define the ContactForm class using FlaskForm    
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
