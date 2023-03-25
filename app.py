@@ -1,6 +1,6 @@
 # Import necessary packages and modules
 from flask import Flask, render_template, request, redirect, url_for, jsonify
-# from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 import yaml
 from flask_bootstrap import Bootstrap
 from wtforms import Form, StringField, validators, SubmitField
@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from mysql.connector import Error
 import mysql.connector
 
