@@ -5,7 +5,7 @@ import mysql.connector
 
 load_dotenv()
 
-print(os.getenv("SSL_CERT"))
+# print(os.getenv("SSL_CERT"))
 
 
 
@@ -18,14 +18,17 @@ ssl_ca='/etc/ssl/cert.pem'
 )
 
 
-sql = '''CREATE TABLE contact_manager3(
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
-  number VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id)
-);'''
+sql = '''DROP TABLE contact_manager;'''
 
+
+# sql = '''CREATE TABLE contact_manager(
+#   id INT NOT NULL AUTO_INCREMENT,
+#   name VARCHAR(255) NOT NULL,
+#   number VARCHAR(255) NOT NULL,
+#   PRIMARY KEY (id)
+# );'''
 
 with connection.cursor() as cur:
     cur.execute(sql)
     connection.close()
+
