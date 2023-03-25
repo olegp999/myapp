@@ -32,6 +32,7 @@ Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'qqq'
 
+# password saved in Environment Variables on render.com
 password=os.getenv("MYSQL_PASSWORD")
 
 # Configure the MySQL connection settings for the Flask app   'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
