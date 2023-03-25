@@ -32,10 +32,10 @@ Bootstrap(app)
 # Configure the MySQL connection settings for the Flask app
 app.config['MYSQL_HOST'] = 'eu-central.connect.psdb.cloud' 
 app.config['MYSQL_USER'] = '1oikc0akh0m4t21n76zx'
-app.config['MYSQL_PASSWORD'] = passwd
+app.config['MYSQL_PASSWORD'] = 'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
 app.config['MYSQL_DB'] = 'contact'
 app.config['SECRET_KEY'] = 'qqq'
-app.config['MYSQL_SSL_KEY'] = '/etc/ssl/cert.pem'
+app.config['MYSQL_SSL_CA'] = '/etc/ssl/cert.pem'
 
 # Initialize the MySQL extension for the Flask app
 mysql = MySQL(app)

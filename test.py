@@ -4,10 +4,13 @@ import os
 import MySQLdb
 
 connection = MySQLdb.connect(
-  host= os.getenv("HOST"),
-  user=os.getenv("USERNAME"),
-  passwd= os.getenv("PASSWORD"),
-  db= os.getenv("DATABASE")
+    host=os.getenv("HOST"),
+    user=os.getenv("USERNAME"),
+    passwd=os.getenv("PASSWORD"),
+    db=os.getenv("DATABASE"),
+    ssl={
+        'ca': os.getenv("SSL_CERT")
+    }
 )
 
 

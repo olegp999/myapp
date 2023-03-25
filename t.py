@@ -5,24 +5,27 @@ import mysql.connector
 
 load_dotenv()
 
+print(os.getenv("SSL_CERT"))
+
+
+
 connection = mysql.connector.connect(
-host=os.getenv("HOST"),
-database=os.getenv("DATABASE"),
-user=os.getenv("USERNAME"),
+host='eu-central.connect.psdb.cloud',
+database='contact',
+user='1oikc0akh0m4t21n76zx',
 password=os.getenv("PASSWORD"),
-ssl_ca=os.getenv("SSL_CERT")
+ssl_ca='/etc/ssl/cert.pem'
 )
 
-try:
-    if connection.is_connected():
-        cursor = connection.cursor()
-    cursor.execute("select @@version ")
-    version = cursor.fetchone()
-    if version:
-        print('Running version: ', version)
-    else:
-        print('Not connected.')
-except Error as e:
-    print("Error while connecting to MySQL", e)
-finally:
+
+sql = '''CREATE TABLE contact_manager3(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  number VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);'''
+
+
+with connection.cursor() as cur:
+    cur.execute(sql)
     connection.close()
