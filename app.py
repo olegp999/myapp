@@ -7,13 +7,11 @@ from wtforms import Form, StringField, validators, SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-import os
-from dotenv import load_dotenv
+# import os
+# from dotenv import load_dotenv
 from mysql.connector import Error
 import mysql.connector
 
-# password = os.environ.get('MYSQL_PASSWORD')
-passwd= os.getenv("PASSWORD")
  
 # Define the ContactForm class using FlaskForm    
 class ContactForm(FlaskForm):
