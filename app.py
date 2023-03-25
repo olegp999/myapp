@@ -7,7 +7,7 @@ from wtforms import Form, StringField, validators, SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
-# import os
+import os
 # from dotenv import load_dotenv
 from mysql.connector import Error
 import mysql.connector
@@ -32,12 +32,14 @@ Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'qqq'
 
-# Configure the MySQL connection settings for the Flask app
+password=os.getenv("MYSQL_PASSWORD")
+
+# Configure the MySQL connection settings for the Flask app   'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
 connection = mysql.connector.connect(
 host='eu-central.connect.psdb.cloud',
 database='contact',
 user='1oikc0akh0m4t21n76zx',
-password='pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ',
+password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
 
