@@ -8,12 +8,11 @@ from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
 from flask_wtf.csrf import CSRFProtect
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from mysql.connector import Error
 import mysql.connector
 
  
-load_dotenv()
 # Define the ContactForm class using FlaskForm    
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
@@ -41,7 +40,7 @@ connection = mysql.connector.connect(
 host='eu-central.connect.psdb.cloud',
 database='contact',
 user='1oikc0akh0m4t21n76zx',
-password='pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ',
+password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
 
