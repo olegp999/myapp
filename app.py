@@ -63,7 +63,7 @@ def index():
             return 'Error'
     else:
             # return render_template('index.html', form=cform)    
-        # try:
+        try:
             with connection.cursor() as cur:
 
                 # Execute a SELECT query to retrieve all the data from the "contacts" table
@@ -77,8 +77,8 @@ def index():
 
                 # Render the contacts.html template with the "contacts" data and the ContactForm instance
                 return render_template('index.html', contacts=cont, form=cform)
-        # except:
-        #     return 'Error'   
+        except:
+            return 'Error'   
     
 
 # Define a route for the contact deletion functionality 
