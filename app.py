@@ -44,9 +44,12 @@ password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
 
+@app.route('/')
+def front():
+    return render_template('front.html')
 
 # Define a route for the root URL that handles both GET and POST requests
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/contacts', methods = ['POST', 'GET'])
 def index():
     # Create a ContactForm instance
     cform = ContactForm()

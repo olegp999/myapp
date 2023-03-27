@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home page
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="p-3 p-lg-5 pt-lg-3">
+    <!-- <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">   -->
+      <h1 class="display-5 fw-bold text-body-emphasis">Olegs Pusins</h1>
+      <!-- <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Olegs Pusins</h1> -->
+      <br><br><br>
+
+<style>
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+<div style="bottom: 0; right: 0; text-align: right;">
+  <h4>
+<a href="#" style="color: black;">CV </a> • <a href="#" style="color: black;">Contact </a>•<a href="{{url_for('index')}}" style="color: black;"> Project</a> 
+  </h4>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
