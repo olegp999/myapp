@@ -48,6 +48,10 @@ ssl_ca='/etc/ssl/cert.pem'
 def front():
     return render_template('front.html')
 
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
+
 # Define a route for the root URL that handles both GET and POST requests
 @app.route('/contacts', methods = ['POST', 'GET'])
 def index():
