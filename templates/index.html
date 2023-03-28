@@ -4,35 +4,34 @@
 
 {% block body %}
 
-<center>
-    <h1>CONTACT MANAGER</h1>
-
-
-    <form method="post" action="{{ url_for('index') }}">
-        {{ form.csrf_token }}
-        {{ form.name.label }} <br> {{ form.name() }} <br>
-        {{ form.number.label }} <br> {{ form.number() }} <br><br>
-        {{ form.submit() }}
-
-    </form>
-    <br>
-    <br>
-    <h1>CONTACTS</h1>
-    <hr style="width:30%;height:3px;background-color:black;">
-        {% for contact in contacts %}
+    <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="p-3 p-lg-5 pt-lg-3">
+            <h3>CONTACT MANAGER</h3>
+ 
+            <form method="post" action="{{ url_for('index') }}">
                 {{ form.csrf_token }}
-                <p>{{ contact[1] }}: {{ contact[2] }} </p>
-                <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: black;">Update</a> 
-                <br>
-                <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: black;">Delete</a>
-                <hr style="width:30%;">
-        {% endfor %}
+                {{ form.name.label }} <br> {{ form.name() }} <br>
+                {{ form.number.label }} <br> {{ form.number() }} <br><br>
+                {{ form.submit() }}
+        
+            </form>
+            <br>
+            <br>
+            <h3>CONTACTS</h3>
+            <hr style="width:30%;height:3px;background-color:black;">
+                {% for contact in contacts %}
+                        {{ form.csrf_token }}
+                        <p>{{ contact[1] }}: {{ contact[2] }} </p>
+                        <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: black;">Update</a> 
+                        <br>
+                        <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: black;">Delete</a>
+                        <hr style="width:30%;">
+                {% endfor %}
 
-
-
-
-</center> 
+      
+          </div>
+        </div>
+      </div>
 
 {% endblock %}
-
-
