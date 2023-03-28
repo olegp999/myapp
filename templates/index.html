@@ -22,9 +22,9 @@
         {% for contact in contacts %}
                 {{ form.csrf_token }}
                 <p>{{ contact[1] }}: {{ contact[2] }} </p>
-                <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: blue; text-decoration: none;">Update</a> 
+                <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: black;">Update</a> 
                 <br>
-                <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: red; text-decoration: none;">Delete</a>
+                <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: black;">Delete</a>
                 <hr style="width:30%;">
         {% endfor %}
 
