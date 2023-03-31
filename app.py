@@ -1,5 +1,5 @@
 # Import necessary packages and modules
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from flask_mysqldb import MySQL
 import yaml
 from flask_bootstrap import Bootstrap
@@ -11,6 +11,8 @@ import os
 # from dotenv import load_dotenv
 from mysql.connector import Error
 import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin
 
  
 # Define the ContactForm class using FlaskForm    
@@ -19,11 +21,39 @@ class ContactForm(FlaskForm):
     number = StringField('Number', validators=[DataRequired()])
     submit = SubmitField('Submit')
     
-
+class RegisterForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    password = StringField('Password', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 # Initialize the Flask app
 app = Flask(__name__)
 
+class User(UserMixin):
+    def __init__(self, id, email, password, username):
+        self.id = id
+        self.email = email
+        self.password = password
+        self.name = username
+
+  
+    @staticmethod
+    def get(id):
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE id=%s", (id,))
+        data = cursor.fetchone()
+        if not data:
+            return None
+        return User(data[0], data[1], data[2], data[3])
+    
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)    
+    
 # Enable CSRF protection for the Flask app
 csrf = CSRFProtect(app)
 
@@ -40,7 +70,7 @@ connection = mysql.connector.connect(
 host='eu-central.connect.psdb.cloud',
 database='contact',
 user='1oikc0akh0m4t21n76zx',
-password=password,
+password='pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ',
 ssl_ca='/etc/ssl/cert.pem'
 )
 
@@ -48,15 +78,71 @@ ssl_ca='/etc/ssl/cert.pem'
 def front():
     return render_template('front.html')
 
+
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    rform = RegisterForm()
+    if request.method == 'POST':
+        password_hash=generate_password_hash(rform.password.data, method='pbkdf2:sha256:10000', salt_length=8,)
+        try:
+            with connection.cursor() as cur:
+                cur.execute("INSERT INTO users(email, password, name) VALUES (%s, %s, %s)", (rform.email.data, password_hash, rform.name.data))
+                connection.commit()
+                cur.execute("SELECT * FROM users WHERE email=%s", (rform.email.data,))
+                data = cur.fetchone()
+                cur.close()
+                user = User(data[0], data[1], data[2], data[3])
+                login_user(user)
+                return redirect(url_for('index'))
+        except:
+            return 'Error'
+    
+    return render_template("register.html", form=rform)    
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    rform = RegisterForm()
+    if request.method == 'POST':
+        try:
+          with connection.cursor() as cur:
+                cur.execute("SELECT * FROM users WHERE email=%s" , (rform.email.data,))
+                data = cur.fetchone()
+                cur.close()
+                if check_password_hash(data[2], rform.password.data):
+                    user = User(data[0], data[1], data[2], data[3])
+                    login_user(user)
+                    return redirect(url_for('index', name=data[3]))
+                else:
+                    flash('Invalid email or password')
+                    return redirect(url_for('login'))
+                
+        except:
+                return 'Error'    
+    return render_template('login.html', form=rform)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('front'))
+
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
 
-# Define a route for the root URL that handles both GET and POST requests
+@app.route('/warning')
+def warning():
+    return render_template('projectslogin.html')
+
+# Define a route for the root URL that handles both GET and POST requests   
 @app.route('/contacts', methods = ['POST', 'GET'])
+@login_required
 def index():
     # Create a ContactForm instance
     cform = ContactForm()
+
+    name = request.args.get('name')
 
     # If the form is validated on submission, insert the data into the database and redirect to the contacts page
     if request.method == 'POST' and cform.validate_on_submit():
@@ -83,7 +169,7 @@ def index():
                 cur.close()
 
                 # Render the contacts.html template with the "contacts" data and the ContactForm instance
-                return render_template('index.html', contacts=cont, form=cform)
+                return render_template('index.html', contacts=cont, form=cform, name=name)
         except:
             return 'Error'   
     
@@ -129,7 +215,6 @@ def contact_update(id, name, number):
         cform.number.default = number
         cform.process() 
         with connection.cursor() as cur:
-            # cur = mysql.connection.cursor()
             cur.execute("SELECT * FROM contacts WHERE  id=%s" , (id,))
             cont = cur.fetchall()
             cur.close()

@@ -3,11 +3,23 @@
 
 
 {% block body %}
-
+<style>
+  p {
+    margin-bottom: 10px; 
+  }
+</style>
     <div class="container my-5">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="p-3 p-lg-5 pt-lg-3">
-            <h3>CONTACT MANAGER</h3>
+            <p>Hello there!</p> 
+              <p>Thank you for taking the time to check out my project. It is a simple tool to record, delete or update contacts. I encourage you to test the functionality and have some fun with it. </p> 
+              <p>The main goal is to improve my coding skills. Please note that I'm currently using free tiers of cloud-based services, so the project may take a little longer to load or respond at times. I appreciate your patience and understanding as I work on improving my coding skills.</p>
+              <p>I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, PlanetScale MySQL serverless database, and Render to deploy the application from Github.</p>
+              <p>Thank you for your interest, and feel free to provide any feedback you may have.</p>
+              <p>Olegs Pusins</p>
+<br>
+<br>
+<br>
  
             <form method="post" action="{{ url_for('index') }}">
                 {{ form.csrf_token }}
