@@ -65,12 +65,12 @@ app.config['SECRET_KEY'] = 'qqq'
 # password saved in Environment Variables on render.com
 password=os.getenv("MYSQL_PASSWORD")
 
-# Configure the MySQL connection settings for the Flask app   'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
+# Configure the MySQL connection settings for the Flask app  
 connection = mysql.connector.connect(
 host='eu-central.connect.psdb.cloud',
 database='contact',
 user='1oikc0akh0m4t21n76zx',
-password='pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ',
+password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
 
