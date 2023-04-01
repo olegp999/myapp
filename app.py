@@ -78,7 +78,9 @@ ssl_ca='/etc/ssl/cert.pem'
 def front():
     return render_template('front.html')
 
-
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
