@@ -4,65 +4,37 @@
 
 {% block body %}
 
-  <!-- <main class="form-signin w-100 m-auto">
-    <form action="{{ url_for('register') }}" method="post">
-        {{ form.csrf_token }}
-      <h1 class="h3 mb-3 fw-normal">Please register</h1>
-      <div class="form-floating">
-        {{ form.name(class="form-control", id="floatingInput", placeholder="name@example.com") }}
-        <label for="floatingInput">{{ form.name.label }}</label>
+<div class="modal modal-sheet position-static d-block  p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Sign up</h1>
       </div>
-      <div class="form-floating">
-        {{ form.email(class="form-control", id="floatingInput", placeholder="name@example.com") }}
-        <label for="floatingInput">{{ form.email.label }}</label>
-      </div>
-      <div class="form-floating">
-        {{ form.password(class="form-control", id="floatingPassword", placeholder="Password") }}
-        <label for="floatingPassword">{{ form.password.label }}</label>
-      </div>
-      {{ form.hidden_tag() }}
-      <br>
-         {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
-    </form>
-  </main> -->
-
-
-
-  <div class="modal modal-sheet position-static d-block  p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content rounded-4 shadow">
-        <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h1 class="fw-bold mb-0 fs-2">Sign up</h1>
-        </div>
-        <div class="modal-body p-5 pt-0">
-          <form class="" action="{{ url_for('register') }}" method="post">
-            {{ form.csrf_token }}
-            <div class="form-floating mb-3">
-              
-              {{ form.name(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
-              <label for="floatingInput">{{ form.name.label }} </label>
-            </div>
-            <div class="form-floating mb-3">
-              {{ form.email(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
-              <label for="floatingInput">{{ form.email.label }}</label>
-            </div>
-            <div class="form-floating mb-3">
-                {{ form.password(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
-                <label for="floatingInput">{{ form.password.label }}</label>
-            </div>
-            {{ form.submit(class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" ) }}   
-            <a href="{{url_for('login')}}" style="color: black;">Sign in</a> 
-            <br>
-            <small class="text-body-secondary">Hello! Thanks for visiting my site. To access the content, please log in or register for an account.</small>
-            <small class="text-body-secondary">Do not use real name, email or password please.</small>
-          </form>
-        </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="" action="{{ url_for('register') }}" method="post">
+          {{ form.csrf_token }}
+          <div class="form-floating mb-3">
+            
+            {{ form.name(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
+            <label for="floatingInput">{{ form.name.label }} </label>
+          </div>
+          <div class="form-floating mb-3">
+            {{ form.email(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
+            <label for="floatingInput">{{ form.email.label }}</label>
+          </div>
+          <div class="form-floating mb-3">
+              {{ form.password(class="form-control rounded-3", id="floatingInput", placeholder="name@example.com") }}
+              <label for="floatingInput">{{ form.password.label }}</label>
+          </div>
+          {{ form.submit(class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" ) }}   
+          <a href="{{url_for('login')}}" style="color: black;">Sign in</a> 
+          <br>
+          <small class="text-body-secondary">Hello! Thanks for visiting my site. To access the content, please log in or register for an account.</small>
+          <small class="text-body-secondary">Do not use real name, email or password please.</small>
+        </form>
       </div>
     </div>
   </div>
-
-
-
-
+</div>
 
 {% endblock %}
