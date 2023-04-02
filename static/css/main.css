@@ -72,11 +72,6 @@
   z-index: 1500;
 }
 
-/* .container { 
-  width: 50%;
-} */
-
-
 a {
   text-decoration: none;
 }
@@ -114,4 +109,13 @@ border-bottom-left-radius: 0;
 margin-bottom: 10px;
 border-top-left-radius: 0;
 border-top-right-radius: 0;
+}
+
+
+.modal-sheet .modal-dialog {
+  width: 380px;
+  transition: bottom .75s ease-in-out;
+}
+.modal-sheet .modal-footer {
+  padding-bottom: 2rem;
 }

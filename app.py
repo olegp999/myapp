@@ -65,12 +65,12 @@ app.config['SECRET_KEY'] = 'qqq'
 # password saved in Environment Variables on render.com
 password=os.getenv("MYSQL_PASSWORD")
 
-# Configure the MySQL connection settings for the Flask app  
+# Configure the MySQL connection settings for the Flask app   'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
 connection = mysql.connector.connect(
 host='eu-central.connect.psdb.cloud',
 database='contact',
 user='1oikc0akh0m4t21n76zx',
-password=password,
+password='pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ',
 ssl_ca='/etc/ssl/cert.pem'
 )
 
@@ -78,9 +78,7 @@ ssl_ca='/etc/ssl/cert.pem'
 def front():
     return render_template('front.html')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
+
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -133,9 +131,10 @@ def logout():
 def projects():
     return render_template('projects.html')
 
-@app.route('/warning')
-def warning():
-    return render_template('projectslogin.html')
+@app.route('/contact')
+def contact():
+    logout_user()
+    return render_template('contact.html')
 
 # Define a route for the root URL that handles both GET and POST requests   
 @app.route('/contacts', methods = ['POST', 'GET'])

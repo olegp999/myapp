@@ -16,7 +16,7 @@ Home page
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
-      <img img src="{{ url_for('static', filename='picture.jpg') }}" class="d-block mx-lg-auto img-fluid"  width="700" height="500" loading="lazy">
+      <img img src="{{ url_for('static', filename='contactm.png') }}" class="d-block mx-lg-auto img-fluid"  width="400" height="300" loading="lazy">
     </div>
     <div class="col-lg-6">
       <h2>App for managing your contacts.</h2>
@@ -26,13 +26,11 @@ Home page
         <p>The main goal is to improve my coding skills. Please note that I'm currently using free tiers of cloud-based services, so the project may take a little longer to load or respond at times. I appreciate your patience and understanding as I work on improving my coding skills.</p>
         <p>I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, PlanetScale MySQL serverless database, and Render to deploy the application from Github.</p>
         <p>Thank you for your interest, and feel free to provide any feedback you may have.</p>
-        •<a href="{{url_for('warning')}}" style="color: black;"> Contact Manager</a> 
+        <h5><a href="{{url_for('register')}}" style="color: black;">• Contact Manager</a></h5>
       </p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
       </div>
     </div>
   </div>
 </div>
-
-
 {% endblock %}

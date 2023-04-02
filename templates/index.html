@@ -1,9 +1,14 @@
+
 {% extends "base.html" %} 
+
 
 
 {% block body %}
 
+
+
       <div class="px-4 py-5 my-5 text-center">
+        <h1>Contact Manager</h1>
 
         <form method="post" action="{{ url_for('index') }}">
           {{ form.csrf_token }}
