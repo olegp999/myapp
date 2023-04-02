@@ -283,6 +283,72 @@
 
     <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 
+
+
+
+
+
+    {% extends "base.html" %}
+
+    {% block title %}
+    Home page
+    {% endblock %}
+    
+    
+    {% block body %}
+    
+    
+    <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="p-3 p-lg-5 pt-lg-3">  
+    
+            <div class="container py-3">
+                <header>
+                  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 ">
+                    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                      <!-- <span class="fs-4">Personal Website</span> -->
+                    </a>
+              
+                    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Login / Register</a>
+                      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Login / Register</a>
+                      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Login / Register</a>
+                    </nav>
+                  </div>
+            
+                </header>
+              </div>
+    
+    
+    
+        <!-- <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">   -->
+          <h1 style="text-align: left; padding-left: 20%;">Olegs Pusins</h1>
+          <!-- <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Olegs Pusins</h1> -->
+          <br><br><br>
+    
+    <style>
+      a:hover {
+        text-decoration: underline;
+      }
+      /* bottom: 0; right: 0;  */
+    </style>
+    <div style="text-align: right; padding-right: 20%;">   
+      <h4>
+    <a href="#" style="color: black;">CV </a> • <a href="#" style="color: black;">Contact </a>•<a href="{{url_for('test')}}" style="color: black;"> Project</a> 
+      </h4>
+    </div>
+    
+        </div>
+      </div>
+    </div>
+    
+    
+    {% endblock %}
+
+
+
+
+
       
   </body>
 </html>
