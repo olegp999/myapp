@@ -27,7 +27,7 @@
               <label for="floatingInput">{{ form.password.label }}</label>
           </div>
           {{ form.submit(class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" ) }}   
-          <a href="{{url_for('login')}}" style="color: black;">Sign in</a> 
+          <p>Already have an account? <a href="{{url_for('login')}}" style="color: black;">Sign in</a> </p>   
           <br>
           <small class="text-body-secondary">Hello! Thanks for visiting my site. To access the content, please log in or register for an account.</small>
           <small class="text-body-secondary">Do not use real name, email or password please.</small>
