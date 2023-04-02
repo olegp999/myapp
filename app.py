@@ -17,8 +17,8 @@ from flask_login import LoginManager, login_user, logout_user, login_required, U
  
 # Define the ContactForm class using FlaskForm    
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    number = StringField('Number', validators=[DataRequired()])
+    name = StringField('Enter a name', validators=[DataRequired()])
+    number = StringField('Enter a phone number', validators=[DataRequired()])
     submit = SubmitField('Submit')
     
 class RegisterForm(FlaskForm):

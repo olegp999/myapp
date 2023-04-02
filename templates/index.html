@@ -1,49 +1,34 @@
-
 {% extends "base.html" %} 
 
 
 {% block body %}
-<style>
-  p {
-    margin-bottom: 10px; 
-  }
-</style>
-    <div class="container my-5">
-        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-          <div class="p-3 p-lg-5 pt-lg-3">
-            <p>Hello there!</p> 
-              <p>Thank you for taking the time to check out my project. It is a simple tool to record, delete or update contacts. I encourage you to test the functionality and have some fun with it. </p> 
-              <p>The main goal is to improve my coding skills. Please note that I'm currently using free tiers of cloud-based services, so the project may take a little longer to load or respond at times. I appreciate your patience and understanding as I work on improving my coding skills.</p>
-              <p>I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, PlanetScale MySQL serverless database, and Render to deploy the application from Github.</p>
-              <p>Thank you for your interest, and feel free to provide any feedback you may have.</p>
-              <p>Olegs Pusins</p>
-<br>
-<br>
-<br>
- 
-            <form method="post" action="{{ url_for('index') }}">
-                {{ form.csrf_token }}
-                {{ form.name.label }} <br> {{ form.name() }} <br>
-                {{ form.number.label }} <br> {{ form.number() }} <br><br>
-                {{ form.submit() }}
-        
-            </form>
-            <br>
-            <br>
-            <h3>CONTACTS</h3>
-            <hr style="width:30%;height:3px;background-color:black;">
-                {% for contact in contacts %}
-                        {{ form.csrf_token }}
-                        <p>{{ contact[1] }}: {{ contact[2] }} </p>
-                        <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: black;">Update</a> 
-                        <br>
-                        <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: black;">Delete</a>
-                        <hr style="width:30%;">
-                {% endfor %}
 
-      
-          </div>
+      <div class="px-4 py-5 my-5 text-center">
+
+        <form method="post" action="{{ url_for('index') }}">
+          {{ form.csrf_token }}
+          {{ form.name.label }} <br> {{ form.name() }} <br>
+          {{ form.number.label }} <br> {{ form.number() }} <br><br>
+          {{ form.submit() }}
+        </form>
+        <br>
+        <br>
+        <br>
+
+        <h1 class="display-5 fw-bold text-body-emphasis">Contacts</h1>
+
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            {% for contact in contacts %}
+            {{ form.csrf_token }}
+            <p>{{ contact[1] }}: {{ contact[2] }} </p>
+            <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}" style="color: black;">Update</a> 
+            <br>
+            <a href="{{ url_for('contact_del', id=contact[0]) }}" style="color: black;">Delete</a>
+            <h1>•</h1>
+            </p>
+            {% endfor %}
         </div>
-      </div>
+      </div>      
 
 {% endblock %}
