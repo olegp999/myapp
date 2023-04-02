@@ -112,8 +112,9 @@ border-top-right-radius: 0;
 }
 
 
+
 .modal-sheet .modal-dialog {
-  width: 380px;
+  /* width: 380px; */
   transition: bottom .75s ease-in-out;
 }
 .modal-sheet .modal-footer {
