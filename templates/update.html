@@ -5,24 +5,17 @@
 {% block body %}
 
 
-<div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="p-3 p-lg-5 pt-lg-3">
-
-    <h3>UPDATE CONTACT: </h3>
-
-    {% for contact in contacts %}
-    <form method="POST" action="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}">
-        {{ form.csrf_token }}
-        {{ form.name.label }} <br> {{ form.name() }} <br>
-        {{ form.number.label }} <br> {{ form.number() }} <br><br>
-        {{ form.submit() }}
-    </form>  
-        {% endfor %}
- 
-       </div>
+<div class="px-4 py-5 my-5 text-center">
+    <div class="col-lg-6 mx-auto">
+        <h3>UPDATE CONTACT: </h3>
+        <form method="POST" action="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}">
+            {{ form.csrf_token }}
+            {{ form.name.label }} <br> {{ form.name() }} <br>
+            {{ form.number.label }} <br> {{ form.number() }} <br><br>
+            {{ form.submit() }}
+        </form>  
     </div>
-</div>
+  </div>
 
 {% endblock %}
 

@@ -217,9 +217,9 @@ def contact_update(id, name, number):
         cform.process() 
         with connection.cursor() as cur:
             cur.execute("SELECT * FROM contacts WHERE  id=%s" , (id,))
-            cont = cur.fetchall()
+            cont = cur.fetchone()
             cur.close()
-            return render_template('update.html', form=cform, contacts=cont)
+            return render_template('update.html', form=cform, contact=cont)
 
 if __name__ == ('__main__'):
     app.run(debug=True)
