@@ -67,9 +67,9 @@ password=os.getenv("MYSQL_PASSWORD")
 
 # Configure the MySQL connection settings for the Flask app   'pscale_pw_SIttdFWRPOJWAGkZsjrUzzOSRKtJBo90ctsOEIyP2KJ'
 connection = mysql.connector.connect(
-host='eu-central.connect.psdb.cloud',
+host='aws.connect.psdb.cloud',
 database='contact',
-user='1oikc0akh0m4t21n76zx',
+user='soj9hamqpih54xafzkwt',
 password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
