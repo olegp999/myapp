@@ -125,7 +125,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('front'))
+    return redirect(url_for('register'))
 
 @app.route('/projects')
 def projects():
