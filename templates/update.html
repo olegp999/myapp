@@ -8,10 +8,11 @@
 <div class="px-4 py-5 my-5 text-center">
     <div class="col-lg-6 mx-auto">
         <h3>UPDATE CONTACT: </h3>
-        <form method="POST" action="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2]) }}">
+        <form method="POST" action="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2], user_id=contact[3]) }}">
             {{ form.csrf_token }}
             {{ form.name.label }} <br> {{ form.name() }} <br>
             {{ form.number.label }} <br> {{ form.number() }} <br><br>
+            {{ form.hidden_field }}
             {{ form.submit() }}
         </form>  
     </div>
