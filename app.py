@@ -70,7 +70,7 @@ connection = mysql.connector.connect(
 host='contactdb.cjra0en5mw75.eu-west-2.rds.amazonaws.com',
 database='contactdb',
 user='admin',
-password='Olegsql666!',
+password=password,
 ssl_ca='/etc/ssl/cert.pem'
 )
 
