@@ -66,11 +66,20 @@ app.config['SECRET_KEY'] = 'qqq'
 password=os.getenv("MYSQL_PASSWORD")
 
 # Configure the MySQL connection settings for the Flask app  
+# connection = mysql.connector.connect(
+# host='contactdb.cjra0en5mw75.eu-west-2.rds.amazonaws.com',
+# database='contactdb',
+# user='admin',
+# password=password,
+# ssl_ca='/etc/ssl/cert.pem'
+# )
+
+
 connection = mysql.connector.connect(
-host='contactdb.cjra0en5mw75.eu-west-2.rds.amazonaws.com',
-database='contactdb',
-user='admin',
-password=password,
+user='sql8612757', 
+password=password, 
+host='sql8.freemysqlhosting.net', 
+database='sql8612757',
 ssl_ca='/etc/ssl/cert.pem'
 )
 
