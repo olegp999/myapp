@@ -9,8 +9,9 @@
 
       <div class="px-4 py-5 my-5 text-center">
         <h1>Contact Manager</h1>
-        <p><a href="{{url_for('logout')}}" style="color: black; background-color: rgb(219, 219, 219); border-radius: 10px; padding: 3px;"> Sign-out</a> when you are done.</p>
-        
+        <p class="lead mb-4">
+          <a href="{{url_for('logout')}}" style="color: blue;">Sign-out</a> when you are done.
+        </p>
         <form method="post" action="{{ url_for('index', id=u_id) }}">
           {{ form.csrf_token }}
           {{ form.name.label }} <br> {{ form.name() }} <br>
