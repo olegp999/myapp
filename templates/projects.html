@@ -11,8 +11,29 @@ Home page
   p {
     margin-bottom: 10px; 
   }
-
 </style>
+
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img img src="{{ url_for('static', filename='front.jpg') }}" class="d-block mx-lg-auto img-fluid"  width="250" height="250" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h2>My personal website.</h2>
+      <p class="lead">
+        <p>It provides a convenient way to get in touch with me and to learn more about my projects and source code. </p> 
+        <p>Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
+        <br>
+        <br>
+        <p><a href="{{url_for('front')}}" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Personal website</button></a></p>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -40,4 +61,26 @@ Home page
     </div>
   </div>
 </div>
+
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img img src="{{ url_for('static', filename='zoomp.png') }}" class="d-block mx-lg-auto img-fluid"  width="250" height="250" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h2>Virtual fun blackjack.</h2>
+      <p class="lead">
+        <p>It was a contactless way to communicate and socialize with friends and family during Covid-19 times. </p> 
+        <p>I've used various technologies such as Wordpress and Zoom.</p>
+        <br>
+        <br>
+        <p><a href="#" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Not active</button></a></p>
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
