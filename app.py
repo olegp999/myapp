@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from flask_mysqldb import MySQL
 import yaml
-from flask_bootstrap import Bootstrap
 from wtforms import Form, StringField, validators, SubmitField, HiddenField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
@@ -56,9 +55,6 @@ def load_user(user_id):
     
 # Enable CSRF protection for the Flask app
 csrf = CSRFProtect(app)
-
-# Initialize the Bootstrap extension for the Flask app
-Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'qqq'
 
