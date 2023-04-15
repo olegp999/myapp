@@ -13,14 +13,21 @@ Home page
   }
 </style>
 
-<h1 class="display-4 fw-bold text-body-emphasis text-center">Projects</h1>
-<p class="lead mb-4 text-center">Hello there! Thank you for taking the time to check out my projects. Feel free to provide any feedback you may have.</p>
-<br>
-<br>
 
-<div class="b-example-divider"></div>
-
-
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+  <h1 class="display-4 fw-bold text-body-emphasis">Projects</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Hello there! Thank you for taking the time to check out my projects. Feel free to provide any feedback you may have.</p>
+    <!-- <p class="lead mb-4">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p> -->
+    <!-- <p><a href="{{url_for('front')}}"><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Personal website</button></a></p> -->
+  </div>
+  <br>
+  <div class="overflow-hidden" style="max-height: 30vh;">
+    <div class="container px-5">
+      <img src="{{ url_for('static', filename='code.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    </div>
+  </div>
+</div>
 
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
