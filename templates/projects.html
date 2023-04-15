@@ -14,12 +14,10 @@ Home page
 </style>
 
 
-<div class="px-4 pt-5 my-5 text-center border-bottom">
+<div  class="px-4 pt-5 my-5 text-center border-bottom">
   <h1 class="display-4 fw-bold text-body-emphasis">Projects</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">Hello there! Thank you for taking the time to check out my projects. Feel free to provide any feedback you may have.</p>
-    <!-- <p class="lead mb-4">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p> -->
-    <!-- <p><a href="{{url_for('front')}}"><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Personal website</button></a></p> -->
   </div>
   <br>
   <div class="overflow-hidden" style="max-height: 30vh;">
@@ -35,7 +33,7 @@ Home page
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It provides a convenient way to get in touch with me and to learn more about my projects and source code.</p>
     <p class="lead mb-4">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
-    <p><a href="{{url_for('front')}}"><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Personal website</button></a></p>
+    <a href="{{url_for('front')}}"><button type="button" class="btn btn-outline-dark btn-lg px-4">Personal website</button></a>
   </div>
   <br>
   <div>
@@ -57,7 +55,7 @@ Home page
     <small class="text-body-secondary">Do not use real name, email or password please.</small>    
     <br>
     <br>
-    <p><a href="{{url_for('register')}}" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Contact Manager</button></a>
+    <p><a href="{{url_for('register')}}" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Contact Manager</button></a>
     <a href="https://github.com/olegp999/myapp" style="color: black;" target="_blank">Source Code</a>
     </p>
   </div>
@@ -75,12 +73,12 @@ Home page
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It was a contactless way to communicate and socialize with friends and family during Covid-19 times.</p>
     <p class="lead mb-4">I've used various technologies such as Wordpress and Zoom.</p>
-    <p><a href="#" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Inactive Service</button></a></p>
+    <a href="#" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Inactive Service</button></a>
   </div>
   <br>
   <div>
     <div class="container px-5">
-      <img src="{{ url_for('static', filename='zoom.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      <img src="{{ url_for('static', filename='zoomp.png') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
     </div>
   </div>
 </div>
