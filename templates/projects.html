@@ -12,96 +12,19 @@ Home page
     margin-bottom: 10px; 
   }
 </style>
-<!-- class="text-center" -->
-<h1 class="display-5 fw-bold text-body-emphasis text-center">Projects</h1>
+
+<h1 class="display-4 fw-bold text-body-emphasis text-center">Projects</h1>
 <p class="lead mb-4 text-center">Hello there! Thank you for taking the time to check out my projects. Feel free to provide any feedback you may have.</p>
-<!-- <h1 style="color: gray;" class="lead mb-4 text-center">•</h1> -->
-<!-- <p style="color: gray;" class="lead mb-4 text-center">•</p> -->
-<h1 style="color: gray;" class="display-5 fw-bold text-body-emphasis text-center" >•</h1>
-<!-- <h1  class="px-4 py-5 my-5 text-center" class="display-5 fw-bold text-body-emphasis">Projects</h1> -->
-
-<div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img img src="{{ url_for('static', filename='front.jpg') }}" class="d-block mx-lg-auto img-fluid"  width="250" height="150" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h2>My personal website.</h2>
-      <p class="lead">
-        <p>It provides a convenient way to get in touch with me and to learn more about my projects and source code. </p> 
-        <p>Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
-        <br>
-        <br>
-        <p><a href="{{url_for('front')}}" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Personal website</button></a></p>
-      </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-      </div>
-    </div>
-  </div>
-</div>
+<br>
+<br>
 
 <div class="b-example-divider"></div>
-
-<div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img img src="{{ url_for('static', filename='contactm.jpg') }}" class="d-block mx-lg-auto img-fluid"  width="250" height="150" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h2>App for managing your contacts.</h2>
-      <p class="lead">
-        <p>Hello there!</p> 
-        <p>Thank you for taking the time to check out my project. It is a simple tool to record, delete or update contacts. The main goal of the project is to improve my coding skills. I encourage you to test the functionality and have some fun with it. </p> 
-        <p>I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, Amazon RDS database, and Render to deploy the application from Github.</p>
-        <p>Thank you for your interest, and feel free to provide any feedback you may have.</p>
-        <p style="color: red;">Please note that as I am currently using free tiers of cloud-based services, the project may take longer to load or respond at times. Due to these limitations, there may be instances where the app communicates with the database and shows errors. In such cases, it is recommended that you reload the page to obtain the expected result. I appreciate your patience and understanding as I work on improving my coding skills.</p>
-        <!-- <h5><a href="{{url_for('register')}}" style="color: black;">• Contact Manager</a></h5> -->
-        <br>
-        <br>
-        <small class="text-body-secondary">To access the content, please log in or register for an account.</small>
-        <small class="text-body-secondary">Do not use real name, email or password please.</small>
-        <br><br>
-        <p><a href="{{url_for('register')}}" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Contact Manager</button></a> 
-        <a href="https://github.com/olegp999/myapp" style="color: black;" target="_blank">Source Code</a>
-        </p>
-      </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="b-example-divider"></div>
-
-<div class="container col-xxl-8 px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img img src="{{ url_for('static', filename='zoomp.png') }}" class="d-block mx-lg-auto img-fluid"  width="250" height="150" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h2>Virtual fun blackjack.</h2>
-      <p class="lead">
-        <p>It was a contactless way to communicate and socialize with friends and family during Covid-19 times. </p> 
-        <p>I've used various technologies such as Wordpress and Zoom.</p>
-        <br>
-        <br>
-        <p><a href="#" ><button style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;"  >Inactive Service</button></a></p>
-      </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="b-example-divider"></div>
-
-
 
 
 
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
-  <h1 class="display-4 fw-bold text-body-emphasis">My personal website.</h1>
+  <h1 class="display-4 fw-bold text-body-emphasis">My personal website</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It provides a convenient way to get in touch with me and to learn more about my projects and source code.</p>
     <p class="lead mb-4">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
@@ -110,7 +33,7 @@ Home page
   <br>
   <div>
     <div class="container px-5">
-      <img src="{{ url_for('static', filename='frontpa.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="500" height="300" loading="lazy">
+      <img src="{{ url_for('static', filename='frontpa.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
     </div>
   </div>
 </div>
@@ -118,7 +41,7 @@ Home page
 
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
-  <h1 class="display-4 fw-bold text-body-emphasis">App for managing your contacts.</h1>
+  <h1 class="display-4 fw-bold text-body-emphasis">App for managing your contacts</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It is a simple tool to record, delete or update contacts. The main goal of the project is to improve my coding skills. I encourage you to test the functionality and have some fun with it.</p>
     <p class="lead mb-4">I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, Amazon RDS database, and Render to deploy the application from Github.</p>
@@ -134,14 +57,14 @@ Home page
   <br>
   <div>
     <div class="container px-5">
-      <img src="{{ url_for('static', filename='cont.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="500" height="300" loading="lazy">
+      <img src="{{ url_for('static', filename='cont.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
     </div>
   </div>
 </div>
 
 
 <div class="px-4 pt-5 my-5 text-center border-bottom">
-  <h1 class="display-4 fw-bold text-body-emphasis">Virtual fun blackjack.</h1>
+  <h1 class="display-4 fw-bold text-body-emphasis">Virtual fun blackjack</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It was a contactless way to communicate and socialize with friends and family during Covid-19 times.</p>
     <p class="lead mb-4">I've used various technologies such as Wordpress and Zoom.</p>
@@ -150,7 +73,7 @@ Home page
   <br>
   <div>
     <div class="container px-5">
-      <img src="{{ url_for('static', filename='zoomp.png') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="500" height="300" loading="lazy">
+      <img src="{{ url_for('static', filename='zoomp.png') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
     </div>
   </div>
 </div>
