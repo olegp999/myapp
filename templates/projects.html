@@ -13,6 +13,8 @@ Home page
   }
 </style>
 
+<!-- Masonry's positioning. -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script> -->
 
 <div  class="px-4 pt-5 my-5 text-center border-bottom">
   <h1 class="display-4 fw-bold text-body-emphasis">Projects</h1>
@@ -28,7 +30,7 @@ Home page
 </div>
 
 
-<div class="px-4 pt-5 my-5 text-center border-bottom">
+<!-- <div class="px-4 pt-5 my-5 text-center border-bottom">
   <h1 class="display-4 fw-bold text-body-emphasis">My personal website</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">It provides a convenient way to get in touch with me and to learn more about my projects and source code.</p>
@@ -42,6 +44,7 @@ Home page
     </div>
   </div>
 </div>
+
 
 
 
@@ -68,6 +71,11 @@ Home page
 </div>
 
 
+
+
+
+
+
 <div class="px-4 pt-5 my-5 text-center border-bottom">
   <h1 class="display-4 fw-bold text-body-emphasis">Virtual fun blackjack</h1>
   <div class="col-lg-6 mx-auto">
@@ -81,39 +89,67 @@ Home page
       <img src="{{ url_for('static', filename='zoom.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
     </div>
   </div>
+</div> -->
+
+
+
+<main class="container py-5">
+<div class="row" data-masonry='{"percentPosition": true }'>
+
+<div class="col-sm-6 col-lg-4 mb-4">
+  <div class="card">
+    <img src="{{ url_for('static', filename='frontpa.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    <div class="card-body">
+      <h5 class="card-title">My personal website</h5>
+      <p class="card-text">It provides a convenient way to get in touch with me and to learn more about my projects and source code.</p>
+      <p class="card-text">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
+      <a href="{{url_for('front')}}" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Personal website</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-lg-4 mb-4">
+  <div class="card">
+    <img src="{{ url_for('static', filename='cont.jpg') }}"  class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    <div class="card-body">
+      <h5 class="card-title">App for managing your contacts</h5>
+      <p class="card-text">It is a simple tool to record, delete or update contacts. The main goal of the project is to improve my coding skills. I encourage you to test the functionality and have some fun with it.</p>
+      <p class="card-text">I've used various technologies such as Python, Flask, Bootstrap, HTML, CSS, MySql, Amazon RDS database, and Render to deploy the application from Github.</p>
+      <p style="color: red;" class="card-text">Please note that as I am currently using free tiers of cloud-based services, the project may take longer to load or respond at times. Due to these limitations, there may be instances where the app communicates with the database and shows errors. In such cases, it is recommended that you reload the page to obtain the expected result. I appreciate your patience and understanding as I work on improving my coding skills.</p>
+      <!-- <p class="card-text">It is a simple tool to record, delete or update contacts. The main goal of the project is to improve my coding skills. I encourage you to test the functionality and have some fun with it.</p> -->
+      <small class="card-text" class="text-body-secondary">To access the content, please log in or register for an account.</small>
+      <small class="card-text" class="text-body-secondary">Do not use real name, email or password please.</small>   
+      <br>
+      <br>       
+      <a href="{{url_for('register')}}"><button type="button" class="btn btn-outline-dark btn-lg px-4">Contact Manager</button></a>
+      <a href="https://github.com/olegp999/myapp" style="color: black;" target="_blank">Source Code</a>
+    </div>
+  </div>
+</div>  
+
+<div class="col-sm-6 col-lg-4 mb-4">
+  <div class="card">
+    <img src="{{ url_for('static', filename='zoom.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    <div class="card-body">
+      <h5 class="card-title">Virtual fun blackjack</h5>
+      <p class="card-text">It was a contactless way to communicate and socialize with friends and family during Covid-19 times.</p>
+      <p class="card-text">I've used various technologies such as Wordpress and Zoom.</p>
+      <a href="#" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Inactive Service</button></a>
+    </div>
+  </div>
 </div>
 
 
+<!-- <div class="col-sm-6 col-lg-4 mb-4">
+  <div class="card">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <div class="card-body">
+      <h5 class="card-title">Card title that wraps to a new line</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+</div> -->
 
-<div class="row" data-masonry='{"percentPosition": true }'>
-  <div class="col-sm-6 col-lg-4 mb-4">
-    <div class="card">
-      <img src="{{ url_for('static', filename='zoom.jpg') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
-      <div class="card-body">
-        <h5 class="card-title">Card title that wraps to a new line</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4 mb-4">
-    <div class="card">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-      <div class="card-body">
-        <h5 class="card-title">Card title that wraps to a new line</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-sm-6 col-lg-4 mb-4">
-    <div class="card">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-      <div class="card-body">
-        <h5 class="card-title">Card title that wraps to a new line</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  </div>
+</div>
+</main>
 {% endblock %}
