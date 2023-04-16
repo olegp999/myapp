@@ -11,6 +11,16 @@ Home page
   p {
     margin-bottom: 10px; 
   }
+  .btn {
+  background-color: black;
+  color: white;
+
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
 </style>
 
 <!-- Masonry's positioning. -->
@@ -42,7 +52,7 @@ Home page
       <h5 class="card-title">My personal website</h5>
       <p class="card-text">It provides a convenient way to get in touch with me and to learn more about my projects and source code.</p>
       <p class="card-text">Technologies used: Python, Flask, Bootstrap, HTML, CSS.</p>
-      <a href="{{url_for('front')}}" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Personal website</button></a>
+      <a href="{{url_for('front')}}" ><button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Personal website</button></a>
     </div>
   </div>
 </div>
@@ -60,7 +70,7 @@ Home page
       <small class="card-text" class="text-body-secondary">Do not use real name, email or password please.</small>   
       <br>
       <br>       
-      <a href="{{url_for('register')}}"><button type="button" class="btn btn-outline-dark btn-lg px-4">Contact Manager</button></a>
+      <a href="{{url_for('register')}}"><button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Contact Manager</button></a>
       <a href="https://github.com/olegp999/myapp" style="color: black;" target="_blank">Source Code</a>
     </div>
   </div>
@@ -73,7 +83,7 @@ Home page
       <h5 class="card-title">Virtual fun blackjack</h5>
       <p class="card-text">It was a contactless way to communicate and socialize with friends and family during Covid-19 times.</p>
       <p class="card-text">I've used various technologies such as Wordpress and Zoom.</p>
-      <a href="#" ><button type="button" class="btn btn-outline-dark btn-lg px-4">Inactive Service</button></a>
+      <a href="#" ><button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">Inactive Service</button></a>
     </div>
   </div>
 </div>
