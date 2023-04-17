@@ -6,19 +6,23 @@ Home page
 
 
 {% block body %}
+<style>
+  .btn {
+  background-color: black;
+  color: white;
 
+}
+
+.btn:hover {
+  background-color: greenyellow;
+  color: black;
+}
+</style>
 
 <div class="px-4 py-5 my-5 text-center">
   <h1 class="display-5 fw-bold text-body-emphasis">Olegs Pusins</h1>
-  <p class="lead">It is my personal website. And a correct way to pronounce the name is: Oleg Pushin.</p>
-  <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4">
-      <a href="https://github.com/olegp999" style="color: blue;" target="_blank">Github</a> • 
-      <a href="{{url_for('contact')}}" style="color: blue;">Contact</a> •
-      <a href="{{url_for('projects')}}" style="color: blue;"> Projects</a> 
-    </p>
-
-  </div>
+  <p class="lead">Welcome to my personal website! <br> Take some time to look around, check out my projects and get in touch with me.</p>
+  <a href="{{url_for('projects')}}" ><button class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">My Projects</button></a>
 </div>
 
 {% endblock %}
