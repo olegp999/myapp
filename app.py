@@ -100,7 +100,7 @@ password=os.getenv("MYSQL_PASSWORD")
 # Configure the MySQL connection settings for the Flask app  
 connection = mysql.connector.connect(
 user='sql8612757', 
-password='1Tz7GuCvTz', 
+password=password, 
 host='sql8.freemysqlhosting.net', 
 database='sql8612757',
 ssl_ca='/etc/ssl/cert.pem'
