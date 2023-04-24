@@ -4,39 +4,49 @@
 
 
 {% block body %}
+<style>
+  .btn {
+  background-color: black;
+  color: white;
+
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+</style>
 
 
+<div class="px-4 py-5 my-5 text-center">
+  <h1>Contact Manager</h1>
+  <p class="lead mb-4">
+    <a href="{{url_for('logout')}}" style="color: green; font-weight: bold">Sign-out</a> when you are done.
+  </p>
+  
+  <form method="post" action="{{ url_for('index', id=u_id) }}">
+    {{ form.csrf_token }}
+    {{ form.name.label }} <br> {{ form.name() }} <br>
+    {{ form.number.label }} <br> {{ form.number() }} <br><br>
+    {{ form.submit(class="btn btn-outline-secondary btn-lg px-4 rounded-pill" ) }}
+    
+  </form>
+  
+  <br>
+  <br>
+  <br>
 
-      <div class="px-4 py-5 my-5 text-center">
-        <h1>Contact Manager</h1>
-        <p class="lead mb-4">
-          <a href="{{url_for('logout')}}" style="color: blue;">Sign-out</a> when you are done.
-        </p>
-        <form method="post" action="{{ url_for('index', id=u_id) }}">
-          {{ form.csrf_token }}
-          {{ form.name.label }} <br> {{ form.name() }} <br>
-          {{ form.number.label }} <br> {{ form.number() }} <br><br>
-          {{ form.submit(style="color: white ; background-color:black; text-decoration: none; border-radius: 10px; transition: all 0.3s ease-in-out;") }}
-        </form>
-        
-        <br>
-        <br>
-        <br>
-
-        <h1 class="display-5 fw-bold text-body-emphasis">Contacts</h1>
-
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">
-            {% for contact in contacts %}
-            {{ form.csrf_token }}
-            <h1>•</h1>
-            <p>{{ contact[1] }}: {{ contact[2] }} </p>
-            <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2], user_id=contact[3]) }}" style="color: black;">Update</a> 
-            <br>
-            <a href="{{ url_for('contact_del', id=contact[0], user_id=contact[3]) }}" style="color: black;">Delete</a>
-            </p>
-            {% endfor %}
-        </div>
-      </div>      
+  <h1 class="display-5 fw-bold text-body-emphasis">Contacts</h1>
+  <br>
+  <div class="col-lg-6 mx-auto">
+    {% for letter, contacts in contacts_l %}
+    <h3>{{ letter }}</h3>
+        {% for contact in contacts %}
+          <a href="{{ url_for('contact_update', id=contact[0], name=contact[1], number=contact[2], user_id=contact[3]) }}" style="color: black;">{{ contact[1] }}: {{ contact[2] }}</a> 
+          <br>
+          {% endfor %}   
+    {% endfor %}    
+  </div>
+</div>      
 
 {% endblock %}

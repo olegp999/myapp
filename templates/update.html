@@ -4,6 +4,18 @@
 
 {% block body %}
 
+<style>
+    .btn {
+    background-color: black;
+    color: white;
+  
+  }
+  
+  .btn:hover {
+    background-color: white;
+    color: black;
+  }
+</style>
 
 <div class="px-4 py-5 my-5 text-center">
     <div class="col-lg-6 mx-auto">
@@ -13,8 +25,12 @@
             {{ form.name.label }} <br> {{ form.name() }} <br>
             {{ form.number.label }} <br> {{ form.number() }} <br><br>
             {{ form.hidden_field }}
-            {{ form.submit() }}
+            {{ form.submit(class="btn btn-outline-secondary btn-lg px-4 rounded-pill" ) }}
         </form>  
+        <br>
+        <p class="lead mb-4">
+         <a href="{{ url_for('contact_del', id=contact[0], user_id=contact[3]) }}" style="color: red; font-weight: bold">Delete Contact</a>
+       </p>
     </div>
   </div>
 

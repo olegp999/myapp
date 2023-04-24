@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from flask_mysqldb import MySQL
 import yaml
+from flask_bootstrap import Bootstrap
 from wtforms import Form, StringField, validators, SubmitField, HiddenField
 from wtforms.validators import DataRequired
 from flask_wtf import FlaskForm
@@ -13,6 +14,22 @@ import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin
 
+# function that sorts a list of words alphabetically and then creates alphabetical sections similar to a phone book
+def index_con(con):
+        # sort the contacts alphabetically by name
+        con.sort(key=lambda x: x[1])
+        # create a dictionary to store the alphabet sections
+        alphabet_sections = {}
+        for contact in con:
+            # get the first letter of the name
+            first_letter = contact[1][0].upper()
+        
+            # if the first letter is not already a key in the dictionary, add it
+            if first_letter not in alphabet_sections:
+                alphabet_sections[first_letter] = []
+                # add the contact to the appropriate alphabet section
+            alphabet_sections[first_letter].append(contact)
+        return alphabet_sections.items()
  
 # Define the ContactForm class using FlaskForm    
 class ContactForm(FlaskForm):
@@ -20,7 +37,7 @@ class ContactForm(FlaskForm):
     number = StringField('Enter a phone number', validators=[DataRequired()])
     submit = SubmitField('Submit')
     
-# Define the RegisterForm class using FlaskForm     
+# Define the RegisterForm class using FlaskForm    
 class RegisterForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     password = StringField('Password', validators=[DataRequired()])
@@ -58,29 +75,32 @@ login_manager.init_app(app)
 # configure the login manager to use the load_user function to retrieve a user's information when they log in
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get(user_id)    
+    return User.get(user_id)       
     
 # Enable CSRF protection for the Flask app
 csrf = CSRFProtect(app)
+
+# Initialize the Bootstrap extension for the Flask app
+Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'qqq'
 
 # password saved in Environment Variables on render.com
 password=os.getenv("MYSQL_PASSWORD")
 
-  
+ 
 # connection = mysql.connector.connect(
-# host='contactdb.cjra0en5mw75.eu-west-2.rds.amazonaws.com',
+# host='localhost',
 # database='contactdb',
-# user='admin',
-# password=password,
+# user='root',
+# password='Olegsql666!',
 # ssl_ca='/etc/ssl/cert.pem'
 # )
 
 # Configure the MySQL connection settings for the Flask app  
 connection = mysql.connector.connect(
 user='sql8612757', 
-password=password, 
+password='1Tz7GuCvTz', 
 host='sql8.freemysqlhosting.net', 
 database='sql8612757',
 ssl_ca='/etc/ssl/cert.pem'
@@ -90,12 +110,13 @@ ssl_ca='/etc/ssl/cert.pem'
 def front():
         return render_template('front.html')
 
+
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     # Create an instance of the RegisterForm class
     rform = RegisterForm()
     
-    # If the request method is POST, process the form data
+    # If the request method is POST, process the form data                        if rform.validate_on_submit():  
     if request.method == 'POST':
         # Generate a hash of the password using the pbkdf2 algorithm with sha256 hash and salt length of 8
         password_hash=generate_password_hash(rform.password.data, method='pbkdf2:sha256:10000', salt_length=8,)
@@ -123,7 +144,7 @@ def register():
     
     # If the request method is GET, render the 'register.html' template with the RegisterForm instance as a parameter
     return render_template("register.html", form=rform)
- 
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -158,8 +179,6 @@ def login():
     # Render the login.html template with the RegisterForm instance as form parameter
     return render_template('login.html', form=rform)
 
-
-
 @app.route('/logout')
 def logout():
     # Log out the user using Flask-Login and redirect to the register page
@@ -177,6 +196,11 @@ def projects():
 def contact():
     # Render the contact.html template
     return render_template('contact.html')
+
+
+
+
+
 
 # Define a route for the root URL that handles both GET and POST requests   
 @app.route('/contacts', methods = ['POST', 'GET'])
@@ -216,11 +240,22 @@ def index():
                 # Close the cursor
                 cur.close()
 
+                alphabet = index_con(cont)
+
+
                 # Render the contacts.html template with the "contacts" data and the ContactForm instance
-                return render_template('index.html', contacts=cont, form=cform, u_id=id)
+                return render_template('index.html', contacts_l=alphabet, form=cform, u_id=id)
         except:
-                return 'Error'        
+                return 'Error'    
         
+
+
+
+
+
+  
+        
+
 # Define a route for the contact deletion functionality 
 @app.route('/del')
 def contact_del():    
