@@ -83,7 +83,8 @@ csrf = CSRFProtect(app)
 # Initialize the Bootstrap extension for the Flask app
 Bootstrap(app)
 
-app.config['SECRET_KEY'] = 'qqq'
+secret_key = os.urandom(24)
+app.config['SECRET_KEY'] = secret_key
 
 # password saved in Environment Variables on render.com
 password=os.getenv("MYSQL_PASSWORD")
