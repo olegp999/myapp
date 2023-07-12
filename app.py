@@ -307,7 +307,7 @@ def contact_update(id, name, number, user_id):
             return 'Error' 
         
 @app.route('/tl')
-def front():
+def traffic_light():
         return render_template('traffic_light.html')        
         
 if __name__ == ('__main__'):
