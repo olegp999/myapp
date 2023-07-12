@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traffic Light</title>
+  <style>
+    .light {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      margin: 10px;
+      margin: 0 auto;
+    }
+
+    #red {
+      background-color: red;
+    }
+
+    #yellow {
+      background-color: yellow;
+    }
+
+    #green {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="trafficLight" >
+    <div id="red" class="light"></div>
+    <div id="yellow" class="light"></div>
+    <div id="green" class="light"></div>
+  </div>
+
+  <script>
+    function changeLights() {
+      var redLight = document.getElementById('red');
+      var yellowLight = document.getElementById('yellow');
+      var greenLight = document.getElementById('green');
+
+      setTimeout(function() {
+        redLight.style.backgroundColor = 'red';
+        yellowLight.style.backgroundColor = 'gray';
+        greenLight.style.backgroundColor = 'gray';
+
+        setTimeout(function() {
+          redLight.style.backgroundColor = 'gray';
+          yellowLight.style.backgroundColor = 'yellow';
+          greenLight.style.backgroundColor = 'gray';
+
+          setTimeout(function() {
+            redLight.style.backgroundColor = 'gray';
+            yellowLight.style.backgroundColor = 'gray';
+            greenLight.style.backgroundColor = 'green';
+
+            setTimeout(function() {
+          redLight.style.backgroundColor = 'gray';
+          yellowLight.style.backgroundColor = 'yellow';
+          greenLight.style.backgroundColor = 'gray';
+
+
+            setTimeout(function() {
+              changeLights();
+            }, 5000);
+          }, 5000);
+        }, 5000);
+      }, 5000);
+    }, 5000);
+    }
+
+    changeLights();
+  </script>
+</body>
+</html>
